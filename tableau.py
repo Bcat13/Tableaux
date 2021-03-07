@@ -1,3 +1,4 @@
+import pickle
 #levelList is a list of lists, which each inner list being a list of matrices at each level
 def matrixLength(matrix):
     count=0
@@ -11,11 +12,13 @@ def matrixLength(matrix):
 def partialRec(largeList):
     if largeList[len(largeList)-1] == []:
         file_name=str(len(largeList[0][0])) + "_by_"+str(len(largeList[0][0][0]))
-        text_file=open('%s.txt' % file_name, 'w')
 
-        for x in range(len(largeList)):
-            text_file.write(str(largeList[x]) + '\n')
-        text_file.close()
+        with open('%s.txt' % file_name, "wb") as fp:
+            pickle.dump(largeList, fp)
+
+        with open('%s.txt' % file_name, "rb") as fp:   # Unpickling
+            b = pickle.load(fp)
+        print(b[0])
 
         return largeList[:len(largeList)-1]
     else:
@@ -81,6 +84,10 @@ def partialOrder(matrix):
                     break
 
     return levelList
+
+#TODO: Create a user nterface that allows people to pick between 1) Discover a New Tableau, aka add to database
+# 2) Learn about a tableau (in the database-by pullng from textfile and then finding info)
+# 3) Improve efficiency by making the data structures a list of set of matriices, raher than a list of list of matrices
 
 
 #Creates the matrix and calls partialRec
