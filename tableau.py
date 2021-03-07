@@ -136,7 +136,7 @@ if __name__ == "__main__":
             print("Enter !print to print the matrix")
             print("Enter !level to find a print a level of the matrix")
             print("Enter !lookup to find the location of a matrix in the partial order")
-            print("Enter !length to find the depth of the partial order")
+            print("Enter !length to find the number of matrices in the partial order")
             print("Enter !depth to find the depth of the partial order")
             print("Enter !quit to end program\n")
 
