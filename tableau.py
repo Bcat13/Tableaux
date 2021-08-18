@@ -1,13 +1,11 @@
 import pickle
-#levelList is a list of lists, which each inner list being a list of matrices at each level
+#levelList isat each level
 def matrixLength(matrix):
     count=0
     for x in range (len(matrix)):
         for y in range (len(matrix[x])):
             count = count + 1
     return count
-
-
 
 def partialRec(largeList):
     if largeList[len(largeList)-1] == []:
@@ -81,33 +79,13 @@ def partialOrder(matrix):
 
     return levelList
 
-#TODO: Create a user nterface that allows people to pick between 1) Discover a New Tableau, aka add to database
-# 2) Learn about a tableau (in the database-by pullng from textfile and then finding info)
-# 3) Improve efficiency by making the data structures a list of set of matriices, raher than a list of list of matrices
-
-
-#Creates the matrix and calls partialRec
 if __name__ == "__main__":
-
-
-
-
-
-
-
-
-
-
-
-
     print("")
     print("Welcome to Tableau!\n")
     print("")
-
     print("Enter !discover to add a new tableau to the database")
     print("Enter !research to learn about a tableau in the database")
     print("Enter !quit to end the program\n")
-
     option=""
     while (option != "!quit"):
         print("")
@@ -128,23 +106,14 @@ if __name__ == "__main__":
                 print("")
                 print("This tableau is not in database")
                 continue
-
-
-
-
-
             print("Enter !print to print the matrix")
             print("Enter !level to find a print a level of the matrix")
             print("Enter !lookup to find the location of a matrix in the partial order")
             print("Enter !length to find the number of matrices in the partial order")
             print("Enter !depth to find the depth of the partial order")
             print("Enter !quit to end program\n")
-
-
             option=input("Select an option: ")
-
-
-
+            
             if option == "!level":
                 level = input("Select a level: ")
                 print(matrix[int(level)-1])
